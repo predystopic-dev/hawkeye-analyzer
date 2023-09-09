@@ -173,12 +173,9 @@ class Deliveries(models.Model):
     combined_id = CombinedIDField(primary_key=True)                 # Innings + Over + Ball
     
     match_id = models.ForeignKey(Matches, on_delete=models.CASCADE)
-    #day = models.IntegerField()                                     # For Tests, otherwise 1
-    #over = models.IntegerField()                                    # Over in which ball was bowled
-    #delivery = models.IntegerField()                                # Ball number in the over
-    
+
+    day = models.PositiveSmallIntegerField()                         # Day of the match (1 for Non Test)
     runs = models.PositiveSmallIntegerField()                        # Runs scored off the ball
-    #innings = models.IntegerField()
     wicket = models.BooleanField()                                  # True if wicket, False if not
     extras = models.PositiveSmallIntegerField()                      # 0 if no extras         
     six_distance = models.PositiveSmallIntegerField()                 # 0 if not six
